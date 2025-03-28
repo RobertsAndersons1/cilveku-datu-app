@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cilvēku Datu Web Aplikācija</title>
+</head>
+<body style="background-color: #3498db; font-family: sans-serif;">
+
+
+    <div>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5000">Home</a></li>
+                <li>
+                    <a href="#" style="width: 103px;">Dati</a>
+                    <ul class="dropdown">
+                        <li><a href="http://127.0.0.1:5000/age">Vecums</a></li>
+                        <li><a href="http://127.0.0.1:5000/gender">Dzimums</a></li>
+                        <li><a href="http://127.0.0.1:5000/jobs">Profesijas</a></li> 
+                        <li><a href="http://127.0.0.1:5000/filter">Filtrs</a></li>
+                        <li><a href="http://127.0.0.1:5000/filtered">Filtrēti</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('static',filename='people-1000.csv')}}" download>Lejuplādēt sākotnējo CSV failu</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: calc(100vh - 160px); text-align: center;">
+        <p style="font-size: 22px; max-width: 600px;">Šī aplikācija ļauj jums analizēt datus no diagrammām un vizualizēt cilvēku datus no CSV faila.<br><br>
+        Izvēlieties vienu no iespējām, lai sāktu analizēt.</p>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+            <a href="/gender"><button class="nav-button">Dzimumu sadalījums</button></a>
+            <a href="/age"><button class="nav-button">Vecuma sadalījums</button></a>
+            <a href="/jobs"><button class="nav-button">Profesiju analīze</button></a>
+            <a href="/filter"><button class="nav-button">Filtrēt datus</button></a>
+            <a href="/filtered"><button class="nav-button">Saglabātie dati</button></a>
+        </div>
+    </div>
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        ul {
+            list-style: none;
+            background-color: #2980b9;
+        }
+        ul li {
+            display: inline-block;
+            position: relative;
+        }
+        ul li a {
+            display: block;
+            padding: 20px 25px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 20px;
+        }
+        ul li ul.dropdown li {
+            display: block;
+        }
+        ul li ul.dropdown {
+            width: 153px;
+            background-color: #2980b9;
+            position: absolute;
+            z-index: 999;
+            display: none;
+        }
+        ul li a:hover {
+            background-color: #46a2da;
+        }
+        ul li:hover ul.dropdown {
+            display: block;
+        }
+        .nav-button {
+            background-color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 250px;
+        }
+        .nav-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+
+</body>
+</html>
